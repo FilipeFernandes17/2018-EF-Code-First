@@ -32,7 +32,18 @@ namespace BlogDemo
                     Console.WriteLine(item.Name);
 
                 //TODO: Get the user to choose a blog and then add a post to that blog.
+                Console.WriteLine($"Choose one of {allBlogs.Count} blogs in the database.");
+                foreach (var item in allBlogs)
+                    Console.WriteLine(item.Name);
+                var choice = Console.ReadLine();
+                Console.Write("Enter a name for a new Blog: ");
+                var newname = Console.ReadLine();
+                Console.Write("Enter new Blog: ");
+                var blogtext = Console.ReadLine();
 
+                var newblog = new Blog { Name = newname };
+                db.Blogs.Add(newblog);
+                db.SaveChanges();
 
 
 
